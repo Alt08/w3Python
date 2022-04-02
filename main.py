@@ -215,7 +215,25 @@ print(10 < 9)
 # Evaluar una cadena y un número
 print(bool("Hello"))
 print(bool(15))
-
+#  --------------- LISTAS ---------------
+'''
+    se puede cambiar y estan ordenados, lo que permite 
+    agregar y eliminar elementos en una lista después de que se haya creado y permite duplicados
+    se escriben con corchete
+        listas -> []
+    
+    es una colección ordenada e inmutable, no se puede modificar y permite valores duplicados
+    no se puede agregar o eliminar datos despues de ser creado
+    se escribe con parentesis
+        tuplas -> () 
+    
+    Los elementos establecidos no se pueden modificar y no estan ordenados, pero puede eliminar elementos y agregar elementos nuevos.
+    se escriben con llaves
+    set
+    
+    se escriben con llaves
+    diccionarios -> {}
+'''
 # LISTAS - los datos pueden ser de cuarquiel tipo
 fruits = ["apple", "banana", "cherry", "cherry"]
 print(fruits)
@@ -230,7 +248,12 @@ print(len(thislist))
       Conjunto:       Es una colección desordenada, inmutable* y no indexada. No hay miembros duplicados.
       El diccionario: Es una colección ordenada** y modificable. No hay miembros duplicados.
 '''
-
+'''
+    Lista: es una colección ordenada y modificable. Permite miembros duplicados.
+    Tuple: es una colección ordenada e inmutable. Permite miembros duplicados.
+    Conjunto: es una colección desordenada, inmutable* y no indexada. No hay miembros duplicados.
+    Diccionario: es una colección ordenada** y modificable. No hay miembros duplicados.
+'''
 thislist = list(("apple", "banana", "cherry"))  # note the double round-brackets
 print(thislist)
 
@@ -277,7 +300,7 @@ print(thislist)
 
 print('\n')
 
-# minar elementos de la lista
+# Elminar elementos de la lista
 thislist = ["apple", "banana", "cherry"]
 thislist.remove("banana")
 print(thislist)
@@ -388,3 +411,223 @@ print(list1)
 # reverse()	Reverses the order of the list
 # sort()	Sorts the list
 
+# ------------- TUPLAS ------------------
+# tipos de datos en las tuplas
+tuple1 = ("apple", "banana", "cherry")
+tuple2 = (1, 5, 7, 9, 3)
+tuple3 = (True, False, False)
+
+# Las tuplas pueden contener diferentes tipos de datos
+tuple4 = ("abc", 34, True, 40, "male")
+
+# El tipos de datos que contniene la tupal
+mytuple5 = ("apple", "banana", "cherry")
+print(type(mytuple5))
+
+# constructor tupla()
+thistuple = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+print(thistuple)
+
+# -> ACCESO A LA TUPLAS <-
+# Una tupla es una colección ordenada e inmutable
+
+# Acceder a un elemento por indice
+thistuples = ("apple", "banana", "cherry")
+print(thistuples[1])
+
+# Indexación negativa
+thistuple = ("apple", "banana", "cherry")
+print(thistuple[-1])
+
+# Acceso a elementos entre un rango
+thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+# La busqueda inicia en la posicion 2 y termina en la 5, pero esta ultima posicion no se incluye
+print(thistuple[2:5])
+
+# Comprobar si un elemento existe en la tupla
+thistuple = ("apple", "banana", "cherry")
+if "apple" in thistuple:
+    print("Yes, 'apple' is in the fruits tuple")
+
+# Actulizar tuplas (inmutables)
+# Para poder actualizar datos en tupla primero se convierte en lista
+# Una vez agregado el nuevo elemento se convierte nuevamente a tupla
+x = ("apple", "banana", "cherry")
+y = list(x)
+y[1] = "kiwi"
+x = tuple(y)
+print(x)
+
+# agregar elementos a tupla - Se hace lo mismo que actualizar
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.append("orange")
+thistuple = tuple(y)
+
+# Agregar una tupla a otra tupla
+thistuple = ("apple", "banana", "cherry")
+# AL crea una tupla de 1 elemento se coloca una ,(coma) al final
+# de lo contrario no sera reconocida como una tupla
+y = ("orange",)
+thistuple += y
+
+print(thistuple)
+
+# Eliminar elementos en una tupla - se hace lo mismo que al agregar un elemento
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.remove("apple")
+thistuple = tuple(y)
+print(thistuple)
+
+# Encaquetacion de tuplas
+fruits = ("apple", "banana", "cherry")
+
+# Desempaquetando una tupla
+fruits = ("apple", "banana", "cherry")
+(green, yellow, red) = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+# Iterar a través de los elementos e imprimir los valores:
+thistuple = ("apple", "banana", "cherry")
+for x in thistuple:
+  print(x)
+
+# Iterar elementos de la tuplas por índice - usando range() y len()
+thistuple = ("apple", "banana", "cherry")
+for i in range(len(thistuple)):
+  print(thistuple[i])
+
+thistuple = ("apple", "banana", "cherry")
+i = 0
+while i < len(thistuple):
+  print(thistuple[i])
+  i = i + 1
+
+# ------------- SETS (Conjuntos) ------------------
+# Es una colección desordenada, inmutable* y no indexada
+
+# Crear un sets
+thisset = {"apple", "banana", "cherry"}
+print(thisset)
+
+# Acceder a sus elementos mediante un for
+thisset = {"apple", "banana", "cherry"}
+for x in thisset:
+  print(x)
+
+# Comprobar si un elemento se encuentra en la tupla
+thisset = {"apple", "banana", "cherry"}
+print("banana" in thisset)
+
+# Agregue un elemento a un conjunto, usando el método add()
+thisset = {"apple", "banana", "cherry"}
+thisset.add("orange")
+
+print(thisset)
+
+# Agregar un sets a otro sets con updata()
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+thisset.update(tropical)
+
+print(thisset)
+
+# Al sets se le puede agregar tuplas, listas o diccionarios
+thisset = {"apple", "banana", "cherry"}
+mylist = ["kiwi", "orange"]
+thisset.update(mylist)
+
+print(thisset)
+
+# Eliminar un elemento del sets usando remove()
+# Elimina "banana" usando el remove() método:
+thisset = {"apple", "banana", "cherry"}
+thisset.remove("banana")
+
+print(thisset)
+# Nota: Si el elemento a eliminar no existe, remove()generará un error
+
+# Eliminar un elemento del sets usando discard()
+thisset = {"apple", "banana", "cherry"}
+thisset.discard("banana")
+
+print(thisset)
+# Nota: Si el elemento a eliminar no existe, NOdiscard() generará un error.
+
+# Vaciar un sets con clear()
+thisset = {"apple", "banana", "cherry"}
+thisset.clear()
+
+# print(thisset)
+
+# Eliminar sets por completo con del
+thisset = {"apple", "banana", "cherry"}
+del thisset
+
+# print(thisset)
+
+# Nota: Ambos union()y update() excluirán cualquier elemento duplicadoO
+# Unir sets = con union()
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set3 = set1.union(set2)
+print(set3)
+
+# Unir sets = con update()
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+set1.update(set2)
+
+print(set1)
+
+# El intersection_update() método mantendrá solo los elementos que están presentes en ambos conjuntos.
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.intersection_update(y)
+
+print(x)
+
+# El intersection() método devolverá un nuevo conjunto, que solo contiene los elementos que están presentes en ambos conjuntos
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+z = x.intersection(y)
+
+print(z)
+
+# El symmetric_difference_update() método mantendrá solo los elementos que NO están presentes en ambos conjuntos
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.symmetric_difference_update(y)
+
+print(x)
+
+# El symmetric_difference() método devolverá un nuevo conjunto, que contiene solo los elementos que NO están presentes en ambos conjuntos
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+z = x.symmetric_difference(y)
+
+print(z)
+
+# Method	Description
+# symmetric_difference_update()	    inserts the symmetric differences from this set and another
+# add()	                            Adds an element to the set
+# update()	                        Update the set with the union of this set and others
+# clear()	                        Removes all the elements from the set
+# discard()	                        Remove the specified item
+# remove()	                        Removes the specified element
+# intersection_update()	            Removes the items in this set that are not present in other, specified set(s)
+# pop()	                            Removes an element from the set
+# difference_update()	            Removes the items in this set that are also included in another, specified set
+# difference()	                    Returns a set containing the difference between two or more sets
+# copy()	                        Returns a copy of the set
+# intersection()	                Returns a set, that is the intersection of two other sets
+# isdisjoint()	                    Returns whether two sets have a intersection or not
+# issubset()	                    Returns whether another set contains this set or not
+# issuperset()	                    Returns whether this set contains another set or not
+# union()	                        Return a set containing the union of sets
+# symmetric_difference()            Returns a set with the symmetric differences of two sets
